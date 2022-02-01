@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pwa test</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-status-bar" content="#ffffff" />
+  <link rel="canonical" href="http://localhost:8080/"/>
+  <meta name="description" content="trying out pwa" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+<style>
+img {
+  width: 10vw;
+}
+
+h1 {
+  padding: 0;
+  margin: 1vw;
+}
+
+.wrapper {
+  width: 15vw;
+  padding: 0vw 2vw 1vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px black solid;
+  border-radius: 5px;
+  background: magenta;
+  position: relative;
+  top: 50vh;
+  transform: translateY(-50%);
+}
+
+</style>
+
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>im pwa</h1>
+    <img src="img.png" alt="asuka">
+  </div>
+  <script>
+    if('serviceWorker' in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(res => console.log("service worker registered"))
+          .catch(err => console.log("failure to register", err))
+      })
+    }
+  </script>
+
+</body>
+</html>
